@@ -1,0 +1,33 @@
+{  
+    "name": "SmartTrans",  
+    "version": "1.0.1",  
+    "manifest_version": 2,
+    "description": "smart translate smart result",  
+    "icons": {
+        "16": "kickball.png",
+        "48": "kickball.png",
+        "128": "kickball.png"
+    },
+    "permissions":[
+        "tabs",
+        "<all_urls>",
+        "contextMenus"
+    ],
+    "browser_action": {
+        "default_icon": "footballgoal.png" ,
+        "default_title": "This is SmartTrans",
+        "default_popup": "./dist/index.html"
+    },
+    "background": {
+        "scripts": ["./dist/background.js"]
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["./dist/content-script.js"],
+        "css": ["./index.css"],
+        "run_at": "document_start"
+    }],
+    "homepage_url": "https://www.baidu.com",
+    "web_accessible_resources": ["./dist/background.js"],
+    "chrome_url_overrides":{"newtab": "./dist/index.html"}
+}
